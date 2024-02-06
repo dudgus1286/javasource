@@ -16,16 +16,23 @@ public class StudentEx2 {
 
     // 주소 변경
     obj.changeAddr("서울시 중랑구");
+    obj.setAddr("서울시 중랑구");
 
     // 주소 변경 확인
     System.out.println(obj);
 
     // 핸드폰번호 변경
     obj.changeHp("010-6987-7890");
+    obj.setHp("010-6987-7890");
     // 변경 확인
     System.out.println(obj);
 
     Student2 obj2 = new Student2();
+    System.out.println(obj2);
+    obj2.setId("20247890");
+    obj2.setName("박지성");
+    obj2.setAddr("경기도 성남시");
+    obj2.setHp("010-7890-1234");
     System.out.println(obj2);
 
     Student2 obj3 = new Student2("20245812", "김진수", "경기도 수원시");

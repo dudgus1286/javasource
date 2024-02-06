@@ -45,7 +45,7 @@ public class Student2 {
   }
 
   // 마우스 오른쪽 버튼, 소스 액션 클릭, 투 스프링... ,
-  @Override
+  @Override // 오버라이딩
   public String toString() {
     return (
       "Student2 [id=" +
@@ -58,5 +58,38 @@ public class Student2 {
       hp +
       "]"
     );
+  }
+
+  // 마우스 오른쪽 버튼, 소스 액션 클릭, 겟셋 만들기
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAddr() {
+    return addr;
+  }
+
+  public void setAddr(String addr) {
+    this.addr = addr;
+  }
+
+  public String getHp() {
+    return hp;
+  }
+
+  public void setHp(String hp) {
+    this.hp = hp;
   }
 }
