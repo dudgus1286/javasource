@@ -29,4 +29,43 @@ public class Account {
   int withdraw(int num) {
     return balance -= num;
   }
+
+  // get, set 메소드
+  public String getAccountNum() {
+    return accountNum;
+  }
+
+  public void setAccountNum(String accountNum) {
+    this.accountNum = accountNum;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getBalance() {
+    return balance;
+  }
+
+  public void setBalance(int balance) {
+    this.balance = balance;
+  }
+
+  // toString
+  @Override
+  public String toString() {
+    return (
+      "Account [accountNum=" +
+      accountNum +
+      ", name=" +
+      name +
+      ", balance=" +
+      balance +
+      "]"
+    );
+  }
 }
