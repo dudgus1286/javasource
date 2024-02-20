@@ -27,8 +27,8 @@ public class BookInsert {
         "INSERT INTO BOOKTBL b(code,title, writer,price) VALUES(1000, '자바프로그래밍 입문', '박은종', 28500)";
       pstmt = con.prepareStatement(sql);
       // 4. sql 구문 실행
-      // executeUpdate() : 실행할 sql 구문이 insert, update, delete 일 때 호출
-      // executeQuery() : 실행할 sql 구문이 select 일 때 호출
+      // executeUpdate() : 실행할 sql 구문이 insert, update, delete 일 때 호출 (리턴 값 int)
+      // executeQuery() : 실행할 sql 구문이 select 일 때 호출 (리턴 값 ResultSet)
       int result = pstmt.executeUpdate(); // result 가 0 보다 크면 성공
       if (result > 0) {
         System.out.println("입력 성공");

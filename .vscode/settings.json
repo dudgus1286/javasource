@@ -1,0 +1,3 @@
+{
+  "java.project.referencedLibraries": ["lib/**/*.jar", "c:\\driver\\ojdbc11-23.2.0.0.jar", "c:\\driver\\lombok.jar"]
+}

@@ -30,7 +30,7 @@ public class BookSelect {
       pstmt = con.prepareStatement(sql);
 
       // 5. sql 구문 실행
-      // executeQuery() : 실행할 sql 구문이 select 일 때 호출
+      // executeQuery() : 실행할 sql 구문이 select 일 때 호출(테이블 형식의 데이터 호출할 때)
       rs = pstmt.executeQuery();
       // ResultSet : sql 실행 결과를 담는 객체(테이블 모양)
       // rs.next() : true인 경우 때 읽어올 결과가 있음
