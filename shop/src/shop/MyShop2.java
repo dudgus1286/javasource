@@ -1,23 +1,15 @@
 package shop;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class MyShop implements IShop {
+public class MyShop2 implements IShop {
 
-  // 배열 => 리스트로
-  // 타입은 객체여야 함(Integer, String, Member ... )
-  // List<타입> list = new ArrayList<>();
-  // ArrayList<타입> list = new ArrayList<>();
-
-  private List<Customer> customers = new ArrayList<>(10);
-  // private Product products[] = new Product[5];
-  private List<Product> products = new ArrayList<>(10);
+  // 배열 데이터 저장
+  private Customer customers[] = new Customer[5];
+  private Product products[] = new Product[5];
   private String title;
   // 장바구니
-  // private Product cart[] = new Product[5];
-  private List<Product> cart = new ArrayList<>(10);
+  private Product cart[] = new Product[5];
 
   //
   private int customerNo;
@@ -39,42 +31,42 @@ public class MyShop implements IShop {
     Customer customer0 = new Customer();
     customer0.setName("홍길동");
     customer0.setPayType(PayType.CARD);
-    customers.add(customer0);
+    customers[0] = customer0;
 
     customer0 = new Customer();
     customer0.setName("김길동");
     customer0.setPayType(PayType.CARD);
-    customers.add(customer0);
+    customers[1] = customer0;
 
     customer0 = new Customer();
     customer0.setName("이길동");
     customer0.setPayType(PayType.CARD);
-    customers.add(customer0);
+    customers[2] = customer0;
 
     customer0 = new Customer();
     customer0.setName("삼길동");
     customer0.setPayType(PayType.CARD);
-    customers.add(customer0);
+    customers[3] = customer0;
 
     customer0 = new Customer();
     customer0.setName("사길동");
     customer0.setPayType(PayType.CARD);
-    customers.add(customer0);
+    customers[4] = customer0;
   }
 
   @Override
   public void genProduct() {
     // 제품 생성
     CellPhone cellPhone = new CellPhone("모델명1", 1000, "통신사명");
-    products.add(cellPhone);
+    products[0] = cellPhone;
     cellPhone = new CellPhone("모델명2", 1000, "통신사명");
-    products.add(cellPhone);
+    products[1] = cellPhone;
     cellPhone = new CellPhone("모델명3", 1000, "통신사명");
-    products.add(cellPhone);
+    products[2] = cellPhone;
     SmartTv tv = new SmartTv("모델명4", 5000, "해상도");
-    products.add(tv);
+    products[3] = tv;
     tv = new SmartTv("모델명5", 5000, "해상도");
-    products.add(tv);
+    products[4] = tv;
   }
 
   @Override
@@ -87,14 +79,12 @@ public class MyShop implements IShop {
   public void start() {
     System.out.println(getTitle() + " : 메인화면 - 계정선택");
     System.out.println("==================================");
-    for (int i = 0; i < customers.size(); i++) {
+    for (int i = 0; i < customers.length; i++) {
       System.out.printf(
         "[%d] %s(%s)\n",
         i,
-        // customers[i].getName(),
-        customers.get(i).getName(),
-        // customers[i].getPayType()
-        customers.get(i).getPayType()
+        customers[i].getName(),
+        customers[i].getPayType()
       );
     }
     System.out.println("[x] 종료");
@@ -116,10 +106,9 @@ public class MyShop implements IShop {
     System.out.println("\n");
     System.out.println(getTitle() + " : 상품목록 - 상품선택");
     System.out.println("==================================");
-    for (int i = 0; i < products.size(); i++) {
+    for (int i = 0; i < products.length; i++) {
       System.out.printf("[%d] ", i);
-      // products[i].printDetail();
-      products.get(i).printDetail();
+      products[i].printDetail();
     }
     System.out.println("[h] 메인 화면");
     System.out.println("[c] 체크 아웃");
@@ -135,7 +124,12 @@ public class MyShop implements IShop {
         checkOut();
         break;
       default: // 0 ~ 4에 해당하는 제품을 장바구니에 추가
-        cart.add(products.get(Integer.parseInt(menu)));
+        for (int i = 0; i < cart.length; i++) {
+          if (cart[i] == null) {
+            cart[i] = products[Integer.parseInt(menu)];
+            break;
+          }
+        }
         productList();
     }
   }
@@ -159,8 +153,7 @@ public class MyShop implements IShop {
     }
     System.out.println("==================================");
     System.out.println("합계 : " + total);
-    // System.out.println("결제방법 : " + customers[customerNo].getPayType());
-    System.out.println("결제방법 : " + customers.get(customerNo).getPayType());
+    System.out.println("결제방법 : " + customers[customerNo].getPayType());
     System.out.println("[p] 이전");
     System.out.println("[q] 결제");
     String menu = sc.nextLine();
